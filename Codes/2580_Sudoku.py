@@ -8,8 +8,10 @@ def printBoard(board):
     return
 
 def isValid(board):
+    counter = set()
+
     for i in range(9):
-        counter = set()
+        counter.clear()
         for j in range(9):
             num = board[i][j]
             if num == 0: continue
@@ -18,7 +20,7 @@ def isValid(board):
             else: counter.add(num)
 
     for j in range(9):
-        counter = set()
+        counter.clear()
         for i in range(9):
             num = board[i][j]
             if num == 0: continue
@@ -28,7 +30,7 @@ def isValid(board):
 
     for top in [0, 3, 6]:
         for left in [0, 3, 6]:
-            counter = set()
+            counter.clear()
             for i in range(3):
                 for j in range(3):
                     num = board[top+i][left+j]

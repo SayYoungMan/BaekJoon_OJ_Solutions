@@ -18,18 +18,26 @@ int main() {
     for (int i=1; i < n; i++) {
         for (int j=0; j < i; j++) {
             if (nums[i] > nums[j]) lis[i] = std::max(lis[i], lis[j] + 1);
-            if (nums[i] < nums[j]) lds[i] = std::max(lds[i], lds[j] + 1);
         }
     }
+
+    for (int i=n-2; i >= 0; i--) {
+        for (int j=n-1; j > i; j--) {
+            if (nums[i] > nums[j]) lds[i] = std::max(lds[i], lds[j] + 1);
+        }
+    }
+
+    // std::cout << "lis: ";
+    // for (int i=0; i < n; i++) std::cout << lis[i] << " ";
+    // std::cout << "\nlds: ";
+    // for (int i=0; i < n; i++) std::cout << lds[i] << " ";
 
     int max = 0;
     for (int i=0; i < n; i++) {
         max = std::max(lis[i] + lds[i] - 1, max);
     }
-    max = *std::max_element(lis.begin(), lis.end()) + *std::max_element(lds.begin(), lds.end()) - 1;
 
     std::cout << max;
 
     return 0;
-
 }

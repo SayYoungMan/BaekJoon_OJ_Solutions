@@ -2,7 +2,7 @@
 #include <vector>
 #include <algorithm>
 
-std::vector<std::vector<char>> overall;
+std::vector< std::vector<char> > overall;
 
 int checkBoard(int t, int l) {
     int bwAns = 0;
